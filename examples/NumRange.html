@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>NumRange Example</title>
+	<link rel="stylesheet" href="style1.css" />
+</head>
+<body>
+	<h3>Enter range:</h3>
+	<input type="text" placeholder="Enter {start, ?end, ?step} values (comma seperated)" value="10" />
+	<h3>NumRange Output:</h3>
+	<pre></pre>
+	<script type="module">
+		import RangeN from '../num-range.js'
+		const outNode = document.querySelector('pre');
+		const inNode = document.querySelector('input');
+		const update = () => {
+			try {
+				const data = JSON.parse(`[${inNode.value.trim()}]`);
+				const [start = 0, end = null, step = 1] = data;
+				outNode.textContent = `Start = ${start}; End = ${end}; Step = ${step};\n\n`;
+				outNode.insertAdjacentText('beforeend', [...RangeN(start, end, step)].join(', '));
+			} catch (error) {
+				outNode.textContent = error.message;
+			}
+		};
+		update();
+		inNode.addEventListener('keyup', update);
+	</script>
+</body>
+</html>
