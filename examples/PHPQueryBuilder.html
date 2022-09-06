@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>PHPQueryBuilder Example</title>
+	<style>
+		* {
+			box-sizing: border-box;
+			font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+		}
+		body {
+			text-align: center;
+			margin: 0;
+			padding: 0.5em;
+		}
+		body, textarea {
+			background: #212121;
+			color: white;
+		}
+		textarea {
+			width: 90%;
+			border: 2px solid black;
+			font-size: 1em;
+			resize: vertical;
+		}
+		pre {
+			max-width: 90%;
+			white-space: pre-wrap;
+
+		}
+	</style>
+</head>
+<body>
+	<h3>Enter data:</h3>
+	<textarea rows="20" placeholder="Enter the data object here (in JSON format)" value=""></textarea>
+	<h3>PHPQueryBuilder Output:</h3>
+	<pre></pre>
+	<script type="module">
+		import PHPQueryBuilder from '../PHPQueryBuilder.js';
+		const exampleData = {
+			a: 10,
+			b: null,
+			c: {
+				d: { e: 1, f: [1, 2.3, true, false, null, 'abcd'] }
+			}
+		};
+		const outNode = document.querySelector('pre');
+		const display = (str) => {
+			outNode.textContent = `Actual output:\n${str}\n\nReadable Format:\n${decodeURI(str)}`;
+		};
+
+		const inNode = document.querySelector('textarea');
+		inNode.value = JSON.stringify(exampleData, null, 4);
+
+		display(PHPQueryBuilder(exampleData));
+		
+		inNode.addEventListener('keyup', () => {
+			try {
+				const data = JSON.parse(inNode.value.trim());
+				display(PHPQueryBuilder(data));
+			} catch (error) {
+				outNode.textContent = error.message;
+			}
+		});
+	</script>
+</body>
+</html>

@@ -60,4 +60,4 @@ function PHPQueryBuilder(data) {
 	return Array.from(genItems(data)).join('&');
 }
 
-export { PHPQueryBuilder };
+export default PHPQueryBuilder;
