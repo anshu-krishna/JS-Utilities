@@ -41,6 +41,9 @@ console.log(QB(data));
 ### `NumRange(start, end = null, step = 1)`
 A `python` like `range` value `generator`.
 [W3Schools: Python range()](https://www.w3schools.com/python/ref_func_range.asp).
+
+**Note: This is a [generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator) function.**
+
 ```javascript
 import RangeN from '{path}/num-range.js';
 
