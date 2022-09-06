@@ -4,6 +4,12 @@ Collection of useful Javascript `Functions` and `Classes`
 
 ---
 
+## List:
+- [PHPQueryBuilder](#phpquerybuilderobject-data)
+- [NumRange](#numrangestart-end--null-step--1)
+
+---
+
 ### `PHPQueryBuilder(object data)`
 
 A function for generating PHP compatible GET query string.
