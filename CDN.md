@@ -1,0 +1,5 @@
+**Contents:**
+
+- PHPQueryBuilder : [CDN jsDeliver](https://cdn.jsdelivr.net/gh/anshu-krishna/JS-Utilities@1.0/php-query-builder.min.js)
+
+- NumRange : [CDN jsDeliver](https://cdn.jsdelivr.net/gh/anshu-krishna/JS-Utilities@1.0/num-range.min.js)
